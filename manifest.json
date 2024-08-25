@@ -1,0 +1,29 @@
+{
+    "manifest_version": 2,
+    "name": "Eproc Token Manager",
+    "version": "1.0",
+    "permissions": [
+      "tabs",
+      "storage",
+      "https://eproc.jfpr.jus.br/*",
+      "https://mail.google.com/*"
+    ],
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": true
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://eproc.jfpr.jus.br/eprocV2/*"],
+        "js": ["eproc_content.js"]
+      },
+      {
+        "matches": ["https://mail.google.com/*"],
+        "js": ["gmail_content.js"]
+      }
+    ],
+    "browser_action": {
+      "default_popup": "popup.html",
+      "default_icon": "icon.png"
+    }
+  }

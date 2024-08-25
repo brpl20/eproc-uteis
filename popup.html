@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Eproc Token Manager</title>
+  <style>
+    body { font-family: Arial, sans-serif; }
+  </style>
+</head>
+<body>
+  <h1>Token Status</h1>
+  <div id="status">Verificando...</div>
+  <script>
+    browser.storage.local.get('token').then((data) => {
+      if (data.token) {
+        document.getElementById('status').textContent = "Token armazenado: " + data.token;
+      } else {
+        document.getElementById('status').textContent = "Token não encontrado.";
+      }
+    });
+  </script>
+</body>
+</html>
