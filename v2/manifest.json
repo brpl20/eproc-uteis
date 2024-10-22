@@ -1,0 +1,25 @@
+{
+    "manifest_version": 2,
+    "name": "Eproc Token Monitor",
+    "version": "1.0",
+    "permissions": [
+      "tabs",
+      "storage",
+      "activeTab",
+      "webNavigation"
+    ],
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    },
+    "content_scripts": [
+      {
+        "matches": ["*://eproc.jfpr.jus.br/eprocV2/*"],
+        "js": ["eproc_content.js"]
+      }
+    ],
+    "browser_action": {
+      "default_icon": "icon-default.png",
+      "default_popup": "popup.html"
+    }
+  }
